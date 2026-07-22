@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>DPS Abohar Chatbot</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    height:100vh;
+    overflow:hidden;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#000;
+}
+
+/* Animated Background */
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:linear-gradient(
+        -45deg,
+        #000000,
+        #010818,
+        #00245d,
+        #006eff,
+        #00245d,
+        #010818,
+        #000000
+    );
+    background-size:400% 400%;
+    animation:gradientMove 12s ease infinite;
+}
+
+/* Blue Glow */
+body::after{
+    content:"";
+    position:fixed;
+    width:70vmax;
+    height:70vmax;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+    background:radial-gradient(
+        circle,
+        rgba(0,140,255,.55),
+        rgba(0,80,255,.25),
+        transparent 70%
+    );
+    filter:blur(80px);
+    animation:pulse 6s ease-in-out infinite;
+}
+
+/* Floating Glow */
+.light{
+    position:fixed;
+    width:300px;
+    height:300px;
+    background:#00aaff;
+    border-radius:50%;
+    filter:blur(120px);
+    opacity:.35;
+    animation:float 15s linear infinite alternate;
+}
+
+/* Main Text */
+.content{
+    position:relative;
+    z-index:10;
+    text-align:center;
+    color:white;
+}
+
+.content h1{
+    font-size:60px;
+    font-weight:700;
+    letter-spacing:2px;
+    text-shadow:
+        0 0 10px #00aaff,
+        0 0 30px #008cff,
+        0 0 60px #006eff;
+}
+
+.content p{
+    margin-top:18px;
+    font-size:22px;
+    color:#d8ecff;
+    text-shadow:0 0 12px #008cff;
+}
+
+/* QR Code */
+.qr{
+    position:fixed;
+    top:20px;
+    right:20px;
+    width:120px;
+    height:120px;
+    background:#fff;
+    padding:8px;
+    border-radius:12px;
+    box-shadow:
+        0 0 15px #00aaff,
+        0 0 35px rgba(0,170,255,.7);
+    z-index:100;
+    transition:0.3s ease;
+}
+
+.qr:hover{
+    transform:scale(1.08);
+    box-shadow:
+        0 0 25px #00c8ff,
+        0 0 50px rgba(0,200,255,.9);
+}
+
+/* Animations */
+@keyframes gradientMove{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+@keyframes pulse{
+    0%,100%{
+        transform:translate(-50%,-50%) scale(1);
+    }
+    50%{
+        transform:translate(-50%,-50%) scale(1.2);
+    }
+}
+
+@keyframes float{
+    from{
+        transform:translate(-25vw,-20vh);
+    }
+    to{
+        transform:translate(25vw,20vh);
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- QR Code (replace qr.png with your file name) -->
+<img src="qr.png" alt="QR Code" class="qr">
+
+<div class="light"></div>
+
+<div class="content">
+    <h1>DPS Abohar Chatbot</h1>
+    <p>Welcome Parents!</p>
+</div>
+<script
+    chatbot_id="6a56f9fc6d3ef217b6a2f0ae"
+    data-type="bar"
+    src="https://app.thinkstack.ai/bot/thinkstackai-loader.min.js"
+></script>
+</body>
+</html>
